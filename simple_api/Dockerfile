@@ -3,9 +3,10 @@ LABEL maintainer="tony@dejesus.pt"
 #MAINTAINER Tony tony@dejesus.pt
 RUN apt-get update -y && apt-get install git -y
 RUN git clone https://github.com/diranetafen/student-list.git
-WORKDIR /student-list
+WORKDIR /student-list/simple_api
+RUN ls -lisah
 COPY . /
-RUN apt-get update -y && apt-get install python-dev python3-dev libsasl2-dev python-dev libldap2-dev libssl-dev -y
+RUN apt-get install python-dev python3-dev libsasl2-dev python-dev libldap2-dev libssl-dev -y
 RUN pip install flask==1.1.2 flask_httpauth==4.1.0 flask_simpleldap python-dotenv==0.14.0
 RUN mkdir /data
 VOLUME /data
