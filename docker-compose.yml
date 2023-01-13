@@ -14,6 +14,6 @@ services:
   API:
     image: image_api
     volumes:
-      - ${PWD}/simple_api/student_age.json:/data/student_age.json
+      - ./simple_api/student_age.json:/data/student_age.json
     ports:
       - 5000:5000
