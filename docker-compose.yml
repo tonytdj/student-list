@@ -3,8 +3,8 @@ services:
   website:
     image: php:apache
     environment:
-      - USERNAME="tony"
-      - PASSWORD="Test2023"
+      - USERNAME=toto
+      - PASSWORD=python
     volumes:
       - ./website:/var/www/html
     depends_on:
