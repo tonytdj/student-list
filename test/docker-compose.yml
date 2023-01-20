@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+    docker-registry-ui:
+        ports:
+            - '8080:80'
+        container_name: 'registry-ui'
+        environment:
+            - REGISTRY_URL=http://registry:5000
+            - REGISTRY_TITLE=UI
+            - DELETE_IMAGES=true
+            - REGISTRY_HTTP_HEADERS_X-Content-Type-Options=[nosniff]
+            - REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin=[*]
+            - REGISTRY_HTTP_HEADERS_Access-Control-Allow-Methods=['HEAD', 'GET', 'OPTIONS', 'DELETE']
+            - REGISTRY_HTTP_HEADERS_Access-Control-Allow-Headers=['Authorization', 'Accept']
+            - REGISTRY_HTTP_HEADERS_Access-Control-Max-Age=[1728000]
+            - REGISTRY_HTTP_HEADERS_Access-Control-Allow-Credentials=[true]
+            - REGISTRY_HTTP_HEADERS_Access-Control-Expose-Headers=[Docker-Content-Digest]
+        network_mode: registry
+        image: joxit/docker-registry-ui
